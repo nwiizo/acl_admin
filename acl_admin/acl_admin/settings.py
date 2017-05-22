@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cms'
+    'bootstrapform',
+    'cms',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -103,3 +104,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 静的ファイルを共通で置く
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+    )

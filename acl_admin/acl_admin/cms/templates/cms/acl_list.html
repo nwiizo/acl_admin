@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}ACLの一覧{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+  margin-top: 8px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+    <h3 class="page-header">ACLの一覧</h3>
+    <a href="{% url 'cms:acl_add' %}" class="btn btn-default btn-sm">追加</a>
+    <table class="table table-striped table-bordered">
+      <thead>
+        <tr>
+          <th>vlan名</th>
+          <th>プロトコル</th>
+          <th>送信元IP</th>
+          <th>送信元ワイルドカードマスク</th>
+          <th>送信元ポート番号</th>
+          <th>宛先IP</th>
+          <th>宛先ワイルドカードマスク</th>
+          <th>宛先ポート番号</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for acl in acls %}
+        <tr>
+          <td>{{ acl.vlan }}</td>
+          <td>{{ acl.protocol }}</td>
+          <td>{{ acl.src_ip }}</td>
+          <td>{{ acl.src_wc }}</td>          
+          <td>{{ acl.src_port }}</td>
+          <td>{{ acl.dst_ip }}</td>
+          <td>{{ acl.dst_wc }}</td>
+          <td>{{ acl.dst_port }}</td>
+          <td>
+            <a href="{% url 'cms:acl_mod' acl_id=acl.id %}" class="btn btn-default btn-sm">修正</a>
+            <a href="{% url 'cms:acl_del' acl_id=acl.id %}" class="btn btn-default btn-sm">削除</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
