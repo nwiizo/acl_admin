@@ -8,20 +8,22 @@ def add_acl():
 
 def add_permit(permit):
     if permit == 0:
-        return permit
+        return " permit"
     if permit == 1:
-        return deny
+        return " deny"
 
 def main():
-    acl = "access-list"
     csv_file_name = sys.argv[1]
     acl_file_name = csv_file_name[:-4]+"_acl.txt"
-    print(acl_file_name)
     with open(csv_file_name,'r') as f:
         reader = csv.reader(f)
 
         for row in reader:
-            for c in range(1,8):
-                print(row[c])
-
+            acl = "access-list"
+            for c in range(1,9):
+                if c == 1:
+                    acl = acl + add_permit(int(row[c]))
+                else:
+                    acl = acl + " " + row[c] 
+            print(acl)
 main()
