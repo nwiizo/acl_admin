@@ -14,16 +14,15 @@ def add_permit(permit):
 
 def main():
     acl_file_name = sys.argv[1]
-    csv_file_name = csv_file_name[:-4]+"_.csv"
+    csv_file_name = acl_file_name[:-4]+"_.csv"
     with open(acl_file_name,'r') as f:
-        reader = csv.reader(f)
-
-        for row in reader:
-            acl = "access-list"
-            for c in range(1,9):
+        for row in f:
+            row_csv = row[:-1].split(' ')
+            csv = "0"
+            for c in range(2,9):
                 if c == 1:
-                    acl = acl + add_permit(int(row[c]))
+                    csv = csv + add_permit(int(row_csv[c]))
                 else:
-                    acl = acl + " " + row[c] 
-            print(acl)
+                    csv = csv + "," + row_csv[c]
+            print(csv)
 main()
