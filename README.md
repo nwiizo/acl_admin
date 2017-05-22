@@ -5,7 +5,7 @@ Access Control List Dictionary
 pip install -r requirements.txt
 ```
 
-### using
+### using cui tools
 #### csv=>acl
 ```
 $python3 csv_acl.py example.csv
