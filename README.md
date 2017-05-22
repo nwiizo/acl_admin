@@ -5,8 +5,14 @@ Access Control List Dictionary
 pip install -r requirements.txt
 ```
 
-### using cui tools
-#### csv=>acl
+## using web tools
+```
+$python3 manage.py runserver
+```
+admin_user:acl_admin
+admin_pass:acl_admin
+## using cui tools
+### csv=>acl
 ```
 $python3 csv_acl.py example.csv
 access-list permit tcp 10.0.0.0 0.0.0.255 0 192.168.0.0 0.0.0.255 80
