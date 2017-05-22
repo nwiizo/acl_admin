@@ -18,7 +18,10 @@ def main():
     with open(acl_file_name,'r') as f:
         for row in f:
             row_csv = row[:-1].split(' ')
-            csv = "0"
+            if len(sys.argv) == 3:
+                csv = sys.argv[2]
+            else:
+                csv = "0"
             for c in range(2,9):
                 if c == 1:
                     csv = csv + add_permit(int(row_csv[c]))
