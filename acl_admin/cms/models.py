@@ -12,5 +12,5 @@ class ACL(models.Model):
     dst_wc = models.CharField('宛先ワイルドカード', max_length=64)
     dst_port = models.CharField('宛先ポート番号', max_length=64)
 
-    def __str__(self):
+    def __int__(self):
             return self.vlan
