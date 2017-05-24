@@ -6,7 +6,7 @@ class ACL(models.Model):
     acl_id = models.IntegerField('acl_id', blank=True)
     vlan = models.IntegerFoeld('vlan',blank=True)
     acl = models.CharField('アクセスリストコントロール', max_length=225)
-    active = models.CharField('有効無効', )
+    active = models.IntegerFoeld('有効無効', blank=True)
 
     def __int__(self):
             return self.acl_id
