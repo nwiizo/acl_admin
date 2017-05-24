@@ -20,7 +20,7 @@ def main():
 
         for row in reader:
             acl = "access-list"
-            for c in range(1,9):
+            for c in range(1,len(row)):
                 if c == 1:
                     acl = acl + add_permit(int(row[c]))
                 else:
