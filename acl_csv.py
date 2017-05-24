@@ -22,7 +22,7 @@ def main():
                 csv = sys.argv[2]
             else:
                 csv = "0"
-            for c in range(2,9):
+            for c in range(2,len(row_csv)):
                 if c == 1:
                     csv = csv + add_permit(int(row_csv[c]))
                 else:
