@@ -10,3 +10,9 @@ class ACL(models.Model):
 
     def __int__(self):
             return self.acl_id
+        
+    def __int__(self):
+            return self.vlan
+    
+    def __int__(self):
+            return self.active
