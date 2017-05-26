@@ -11,7 +11,8 @@ def acl_list(request):
     acls = ACL.objects.all().order_by('vlan')
     return render(request,
                   'cms/acl_list.html',
-                  {'acls':acls})
+                  {'acls':acls}
+                 )
 
 def acl_edit(request,vlan=None):
     """ACLの編集"""
